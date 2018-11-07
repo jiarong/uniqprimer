@@ -1,0 +1,3 @@
+# command to get env requirement files, replace root with env name
+# must remove conda it self
+conda list --export -n root | egrep -v '^conda' > root_pkgs

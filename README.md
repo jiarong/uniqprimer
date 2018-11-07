@@ -3,8 +3,7 @@
 [![Snakemake](https://img.shields.io/badge/snakemake-≥4.8.0-brightgreen.svg)](https://snakemake.bitbucket.io)
 [![Build Status](https://travis-ci.org/snakemake-workflows/uniqprimer.svg?branch=master)](https://travis-ci.org/snakemake-workflows/uniqprimer)
 
-This is the template for a new Snakemake workflow. Replace this text with a comprehensive description covering the purpose and domain.
-Insert your code into the respective folders, i.e. `scripts`, `rules`, and `envs`. Define the entry point of the workflow in the `Snakefile` and the main configuration in the `config.yaml` file.
+This pipeline designs primers that are unique to a genome/genome bin after metagenome assemlby and binning, which can be further used to verify the genome/genome bin are real by running PCR using the primers in the same DNA extract as the metagenome are sequenced from. Another use case is to match isolates from culturing to genome bins.
 
 ## Authors
 
@@ -45,4 +44,6 @@ See the [Snakemake documentation](https://snakemake.readthedocs.io) for further 
 
 ## Testing
 
+<!--
 Tests cases are in the subfolder `.test`. They should be executed via continuous integration with Travis CI.
+-->

@@ -28,7 +28,7 @@ rule all:
 
 rule maxbin:
     input: 
-        '{sample}/{pid}_contigs.fasta',
+        '{sample}/{pid}_contigs.fasta.gz',
         '{sample}/{pid}_contigcoverage.tsv'
     output: 
         directory('{sample}/maxbin'),
@@ -40,7 +40,7 @@ rule maxbin:
         && mkdir -p maxbin \
         && run_MaxBin.pl -thread {threads} \
             -max_iteration 100 \
-            -contig {wildcards.pid}_contigs.fasta \
+            -contig {wildcards.pid}_contigs.fasta.gz \
             -abund {wildcards.pid}_contigcoverage.tsv \
             -out maxbin/maxbin
     """
@@ -70,7 +70,7 @@ rule checkm:
 
 rule mash_screen:
     input:
-        '{sample}/{sample}_reads.fasta'
+        '{sample}/{sample}_reads.fasta.gz'
     output:
         '{sample}/mb.mashscreen.tsv',
         '{sample}/mb.mashscreenw.tsv'
@@ -109,7 +109,7 @@ rule mash_dist:
 # same as mash_screen with more detailed taxon info
 rule refseqmasher_contain:
     input:
-        '{sample}/{sample}_reads.fasta'
+        '{sample}/{sample}_reads.fasta.gz'
     output:
         '{sample}/mb.rmcontain.csv'
     conda: 'envs/root.yaml'
